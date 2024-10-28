@@ -1,6 +1,6 @@
 return {
   "christoomey/vim-tmux-navigator",
-  lazy = false,
+  --  lazy = false,
   config = function()
     vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
     vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
