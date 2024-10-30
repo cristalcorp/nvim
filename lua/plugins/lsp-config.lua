@@ -14,20 +14,6 @@ return {
 		opts = {
 			auto_install = true,
 		},
-		-- config = function()
-		-- require("mason-lspconfig").setup({
-		-- ensure_installed = {
-		--"lua_ls",
-		--"dockerls",
-		--"gopls",
-		--"jsonls",
-		--"ltex",
-		--"pyright",
-		--"rust_analyzer",
-		--"yamlls",
-		--},
-		--})
-		--end,
 	},
 	{
 		-- https://github.com/neovim/nvim-lspconfig
@@ -48,7 +34,8 @@ return {
 			lspconfig.yamlls.setup({ capabilities = capabilities })
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "je sais plus" })
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "je sais plus" })
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "show definition" })
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "show references" })
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "code action" })
 		end,
 	},
