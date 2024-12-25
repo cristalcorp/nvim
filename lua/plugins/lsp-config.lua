@@ -26,7 +26,17 @@ return {
 			--languages
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.dockerls.setup({ capabilities = capabilities })
-			lspconfig.gopls.setup({ capabilities = capabilities })
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+				-- filetypes = {"go", "gomod", "gowork", "gotmpl"},
+				-- root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+				settings = {
+					gopls = {
+						completeUnimported = true,
+						usePlaceholders = true,
+					},
+				},
+			})
 			lspconfig.jsonls.setup({ capabilities = capabilities })
 			lspconfig.ltex.setup({ capabilities = capabilities })
 			lspconfig.pyright.setup({ capabilities = capabilities })
