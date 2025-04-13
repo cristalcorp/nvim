@@ -15,7 +15,7 @@ return {
   {
     -- https://github.com/hrsh7th/nvim-cmp
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+    dependencies = {"L3MON4D3/LuaSnip"},
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
