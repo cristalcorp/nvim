@@ -3,6 +3,7 @@ return {
     -- https://github.com/nvim-telescope/telescope.nvim
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
+    cmd = "Telescope",
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
         local builtin = require("telescope.builtin")
@@ -24,6 +25,7 @@ return {
   {
     -- https://github.com/nvim-telescope/telescope-ui-select.nvim
     "nvim-telescope/telescope-ui-select.nvim",
+    cmd = "Telescope",
     config = function()
       require("telescope").setup({
         extensions = {
