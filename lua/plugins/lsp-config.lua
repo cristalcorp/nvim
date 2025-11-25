@@ -38,7 +38,20 @@ return {
 				},
 			})
 			lspconfig.jsonls.setup({ capabilities = capabilities })
-			lspconfig.ltex.setup({ capabilities = capabilities })
+      lspconfig.ltex_plus.setup({
+    capabilities = capabilities,
+    filetypes = { "markdown", "tex", "plaintex" },
+    settings = {
+        ltex = {
+            language = "fr",
+            -- "edit"  = à chaque modif (ce que tu as là, infernal)
+            -- "save"  = uniquement quand tu fais :w
+            -- "manual" = seulement quand tu appelles explicitement un check
+            checkFrequency = "save",
+        },
+    },
+})
+
 			lspconfig.pyright.setup({ capabilities = capabilities })
 			lspconfig.rust_analyzer.setup({ capabilities = capabilities })
 			lspconfig.yamlls.setup({ capabilities = capabilities })
