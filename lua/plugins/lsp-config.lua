@@ -24,10 +24,16 @@ return {
 
 			local lspconfig = require("lspconfig")
 			--languages
-			lspconfig.lua_ls.setup({ capabilities = capabilities })
-			lspconfig.dockerls.setup({ capabilities = capabilities })
-			lspconfig.gopls.setup({
-				capabilities = capabilities,
+			-- lspconfig.lua_ls.setup({ capabilities = capabilities })
+      vim.lsp.config("lua_ls", {
+        capabilities = capabilities,
+      })
+			-- lspconfig.dockerls.setup({ capabilities = capabilities })
+      vim.lsp.config("dockerls", {
+        capabilities = capabilities,
+      })
+			vim.lsp.config("gopls", {
+        capabilities = capabilities,
 				-- filetypes = {"go", "gomod", "gowork", "gotmpl"},
 				-- root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 				settings = {
@@ -37,8 +43,11 @@ return {
 					},
 				},
 			})
-			lspconfig.jsonls.setup({ capabilities = capabilities })
-      lspconfig.ltex_plus.setup({
+			-- lspconfig.jsonls.setup({ capabilities = capabilities })
+      vim.lsp.config("jsonls",{
+        capabilities = capabilities,
+    })
+    vim.lsp.config("ltex_plus", {
     capabilities = capabilities,
     filetypes = { "markdown", "tex", "plaintex" },
     settings = {
@@ -52,9 +61,20 @@ return {
     },
 })
 
-			lspconfig.pyright.setup({ capabilities = capabilities })
-			lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-			lspconfig.yamlls.setup({ capabilities = capabilities })
+			-- lspconfig.pyright.setup({ capabilities = capabilities })
+      vim.lsp.config("pyright", {
+        capabilities = capabilities,
+      })
+			-- lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+      vim.lsp.config("rust_analyzer", {
+        capabilities = capabilities,
+      })
+			-- lspconfig.yamlls.setup({ capabilities = capabilities })
+      vim.lsp.config("yamlls", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.enable({ "lua_ls", "dockerls", "gopls", "jsonls", "ltex_plus", "pyright", "rust_analyzer", "yamlls" })
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "je sais plus" })
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "show definition" })
